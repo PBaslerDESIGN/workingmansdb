@@ -1,0 +1,58 @@
+html,body{
+    height: 100%;
+    width: 100%;
+}
+
+body{
+    background-color: gray;
+}
+
+header{
+    display: grid;
+    grid-template-columns: repeat(5, 20%);
+    background-color: black;
+    color: white;
+    padding: 0 15px;
+}
+
+.header-h1-a{
+    text-decoration: none;
+    color: white;
+}
+
+header ul{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+header li{
+    display: inline;
+    padding: 6.5px;
+}
+
+header a{
+    color: white;
+    text-decoration: none;
+}
+
+header a:hover{
+    color: grey;
+}
+
+header nav{
+    grid-column: 5/7;
+    align-self: center;
+    justify-self: end;
+}
+
+main{
+    min-height: 100%;
+}
+
+footer{
+    background-color: black;
+    color: white;
+    height: 30px;
+    margin-top: -30px;
+}
