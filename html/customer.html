@@ -11,7 +11,31 @@
 <body>
 <div class="wrapper">
 <header>
-    <a class="header-h1-a" href="../index.html"><h1>WMDB</h1></a>
+    <a class="header-h1-a" href="../index.html"><h1>WorkingManDB</h1></a>
+    
+        <!--Search types
+            Date-Name-Phone number-vehicle-price-trade-notes
+        -->
+        <form action="">
+      <section id="searchbar">
+            <input type="search" name="search" placeholder="Search for client...">
+            <a href="">Advanced</a>
+        </section>
+        </form>
+        <div id="searchbar-advanced">
+            <label for="searh-items">Search By:</label>
+            <select name="search-items" id="search-items">
+                <option value="date">Date</option>
+                <option value="fname">First Name</option>
+                <option value="lname">Last Name</option>
+                <option value="phone">Phone Number</option>
+                <option value="vehicle">Vehicle</option>
+                <option value="price">Price</option>
+                <option value="trade">Trade</option>
+                <option value="notes">Notes</option>
+            </select>
+            </div>
+    
     <nav>   
         <ul>
             <li><a href="../index.html">Home</a></li>
@@ -21,41 +45,8 @@
     </nav>
 </header>
 <main>
-    <section>
-        <!--Search types
-            Date-Name-Phone number-vehicle-price-trade-notes
-        -->
-        <form action="">
-            <label for="search">Search</label>
-            <input type="search" id="search" name="search">
-            <a href="">Advanced</a>
 
-            <label for="date">Date:</label>
-            <input type="checkbox" id="date" name="date">
-
-            <label for="fname">First name:</label>
-            <input type="checkbox" id="fname" name="fname">
-
-            <label for="lname">Last name:</label>
-            <input type="checkbox" id="lname" name="lname">
-
-            <label for="phone">Phone #:</label>
-            <input type="checkbox" id="phone" name="phone">
-
-            <label for="vehicle">Vehicle:</label>
-            <input type="checkbox" id="vehicle" name="vehicle">
-
-            <label for="price">Price:</label>
-            <input type="checkbox" id="price" name="price">
-
-            <label for="trade">Trade</label>
-            <input type="checkbox" id="trade" name="trade">
-
-            <label for="notes">Notes:</label>
-            <input type="checkbox" id="notes" name="notes">
-        </form>
-    </section>
-    <h1>Search Results</h1>
+    <h2>Search Results</h2>
     <section>
 
     </section>
