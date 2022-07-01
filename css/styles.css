@@ -76,50 +76,6 @@ html{
     display: grid;
   }
 
-  #searchbar{
-    align-items: center;
-    justify-items: baseline;
-    /*background-color: rgb(30, 81, 40);
-    
-    border-radius: 3px;
-    color: rgb(25, 26, 25);
-    -webkit-box-shadow: 5px 5px 15px 5px #000000; 
-    box-shadow: 5px 5px 15px 5px #000000;
-    */
-    grid-row: 1/2;
-    display: grid;
-    grid-template-columns: repeat(2, auto);
-    grid-gap: 15px;
-    padding: 15px;
-    margin: 0 auto;
-  }
-
-  #searchbar input{
-    grid-column: 1/5;
-    
-  }
-
-  #searchbar a{
-    grid-column: 5/6;
-    text-decoration: none;
-    font-weight: bold;
-    color: rgb(78, 159, 61);
-  }
-
-  #searchbar-advanced{
-    width: 230px;
-    position: relative;
-    top: 52px;
-    left: 110px;
-    grid-column: 2/3;
-    grid-row: 1/2;
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(2, 1fr);
-    
-    background-color:rgb(78, 159, 61);
-    color:rgb(216, 233, 168);
-    padding: 8px;
-  }
 
   
   input{
