@@ -1,0 +1,99 @@
+
+   /*Header Element and children elements*/
+   header{
+    background-color: rgb(216, 233, 168);
+    color: rgb(30, 81, 40);
+    display: grid;
+    grid-template-columns: repeat(3, 30% 55% 15%);
+    align-items: baseline;
+    padding: 0 10px;
+    position: relative;
+
+  }
+  
+  header h1{
+    color: rgb(30, 81, 40);
+     grid-column: 1/2;
+     display: inline;
+     align-self: baseline;
+     justify-self: start;
+     margin: 0;
+  }
+
+  .header-h1-a{
+    text-decoration: none;
+  }
+
+  #searchbar-form{
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+  }
+
+  #searchbar input{
+    border-radius: 3px;
+    color: rgb(216, 233, 168);
+    background-color: rgb(78, 159, 61);
+    border: 1px solid rgb(78, 159, 61);
+    font-size: 20px;
+  }
+
+  #searchbar button{
+    width: 75px;
+    border: 0;
+    color:rgb(30, 81, 40);
+    font-weight: bold;
+    background-color: rgb(216, 233, 168) ;
+  }
+
+  #searchbar-advanced{
+    width: 341.5px;
+    display: grid;
+    grid-template-columns: repeat(2, 30% 70%);
+    row-gap: 10px;
+    background-color: rgb(78, 159, 61);
+    margin-top: -1px;
+    padding: 10px;
+    border: 0px;
+    position: absolute;
+    top: 36px;
+    z-index: 100;
+  }
+
+  #searchbar-advanced label{
+    grid-column: 1/2;
+    grid-row: 1/2;
+  }
+
+  #searchbar-advanced select{
+    grid-column: 2/3;
+    grid-row: 1/2;
+  }
+
+  #searchbar-advanced button{
+    grid-column: 2/3;
+    grid-row: 2/3;
+    justify-self: end;
+  }
+
+  nav{
+    grid-column: 3/4;
+    justify-self: end;
+  }
+
+  nav ul{
+    margin: 0;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+  }
+  
+  nav a{
+    color: rgb(30, 81, 40);
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 16px;
+    justify-self: center;
+  }
+  
+  nav a:hover{
+    color: rgb(25, 26, 25);
+  }

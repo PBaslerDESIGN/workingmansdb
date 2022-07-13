@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sandbox</title>
+</head>
+<body>
+    <input type="text" placeholder="color" />
+    <input type="text" placeholder="background color"/>
+    <input type="text" placeholder="font size"/>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    <script>
+        
+        var myInputs = document.querySelectorAll("input");
+        var myBody = document.querySelector("body");
+
+        var color = myInputs[0];
+        var bgColor = myInputs[1];
+        var fontSize = myInputs[2];
+
+        function callbackColor(event){
+            myBody.style.color = event.target.value;
+        }
+
+        function callbackBGColor(event){
+            myBody.style.backgroundColor = event.target.value;
+        }
+
+        function callbackFont(event){
+            myBody.style.fontSize = event.target.value;
+        }
+
+        color.addEventListener('keyup', callbackColor);
+
+        bgColor.addEventListener('keyup', callbackBGColor);
+
+        fontSize.addEventListener('keyup', callbackFont);
+        
+    </script>
+</body>
+</html>
