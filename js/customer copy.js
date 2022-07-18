@@ -10,10 +10,6 @@ const trade = document.querySelector("#trade");
 const notes = document.querySelector("#notes");
 const errorElement = document.querySelector("#errorElement");
 const form = document.querySelector("#form-addcustomer");
-const addcustomer = document.querySelector("#form-addcustomer");
-
-var addcustomerSection = addcustomer.querySelector("section");
-addcustomerSection.style.gridTemplateColumns = "100px 400px 100px";
 
 var messages = [];
     

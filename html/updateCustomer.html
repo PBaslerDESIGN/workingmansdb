@@ -25,62 +25,36 @@
 
     <h2 id="main-heading">Add Customer</h2>
     <section id="main-content">
-        <div id="errorElement"></div>
         <form id="form-addcustomer" name="add_customer" action="">
-        <section class="form-column">
             <label for="date">Date:</label>
-            <input type="text" id="date" name="date" placeholder="MM/DD/YYYY">
-            <div id="dateState">Date format must be "MM/DD/YYYY</div>
-        </section>
+            <input type="date" id="date" name="date">
 
-        <section class="form-column">
             <label for="fname">First Name:</label>
-            <input type="text" id="fname" name="fname" placeholder="First Name" >
-            <div id="fnameState"></div>
-        </section>
+            <input onchange="validateFirstName()" type="text" id="fname" name="fname" placeholder="First Name" >
 
-        <section class="form-column">
             <label for="lname">Last Name:</label>
             <input type="text" id="lname" name="lname" placeholder="Last Name">
-            <div id="lnameState"></div>
-        </section>
-
-        <section class="form-column">
+          
             <label for="phone">Phone #</label>
             <input type="text" id="phone" name="phone" placeholder="Phone Number">
-            <div id="phoneState"></div>
-        </section>
-
-        <section class="form-column">
+            
             <label for="vehicle">Vehicle Make</label>
             <input type="text" id="vehicle" name="vehicle" placeholder="Vehicle Make">
-            <div id="vehicleState"></div>
-        </section>
-
-        <section class="form-column">
+          
             <label for="price">Price:</label>
             <input type="text" id="price" name="price" placeholder="Vehicle Price">
-            <div id="priceState"></div>
-        </section>
-
-        <section class="form-column">
+          
             <label for="trade">Trade In:</label>
             <input type="text" id="trade" name="trade" placeholder="Trade In">
-            <div id="tradeState"></div>
-        </section>
-
-        <section class="form-column">
+            
             <label for="notes">Notes:</label>
-            <textarea id="notes" name="notes" placeholder="Write comments in 250 or less..."></textarea>
+            <textarea id="notes" name="notes" placeholder="Write comments in 250 or less..."></textarea>  
             <button id="form-button" type="submit">Submit</button>
-            <div id="notesState"></div>
-        </section>
-
         </form>
     </section>
 </main>
 <footer></footer>
 </div>
-<script src="../js/customer.js"></script>
+<script src="../js/addCustomer.js"></script>
 </body>
 </html>
