@@ -12,6 +12,7 @@ const errorElement = document.querySelector("#errorElement");
 const form = document.querySelector("#form-addcustomer");
 const addcustomer = document.querySelector("#form-addcustomer");
 
+var errorState = document.querySelectorAll('.errorState');
 var addcustomerSection = addcustomer.querySelector("section");
 addcustomerSection.style.gridTemplateColumns = "100px 400px 100px";
 
@@ -19,36 +20,27 @@ var messages = [];
     
     date.addEventListener('keyup',function(event){
         let dateValue = date.value;
+        let regex = /^[0-9]{2}\/[0-9]{2}\/[0-9]{4}$/;
         //Checks that the date input is not empty, greater than 10 chars and is in the proper format
-        if(dateValue.length > 0){
-            let regex = /^[0-9]{2}\/[0-9]{2}\/[0-9]{4}$/;
-            console.log(regex.test(dateValue))
-                if(regex.test(dateValue) == false){
-                    messages.push("Date Field format is DD/MM/YYYY");
-                    console.log(regex.test(dateValue))
-                }
-            }else{
-            messages.push("Date Field is Required!")
-            console.log("Date Field is Required!")
+        if(dateValue === "" || dateValue === null){
+            errorState[0].innerText = "Date field is Required!";
+        }else if(regex.test(dateValue) === false){
+            errorState[0].innerText ="Date field format is DD/MM/YYYY";
+        }else{
+            errorState[0].innerText = "Date field looking good!";
         }
-        
     });
     
     fname.addEventListener('keyup',function(event){
         let fnameValue = fname.value;
         let regex = /^[a-zA-Z]{1,25}$/;
-        if(fnameValue.length > 0){
-            console.log("fname Field is greater than zero!")
-            if(regex.test(fnameValue)){
-                console.log("First Name Field format is correct")
-                console.log(regex.test(fnameValue))
+        if(fnameValue === "" || fnameValue === null){
+            errorState[1].innerText = "First Name field is Required";
+        }else if(regex.test(fnameValue) === false){
+            errorState[1].innerText = "First Name field must be letter only ex. a-z A-Z";
         }else{
-                console.log("First Name must be no more than 25 chars [a-zA-Z]")
-            }
-        }else{
-            console.log("fname Field is Required!")
+            errorState[1].innerText = "First Name field looking good!";
         }
-        
     });
     
     lname.addEventListener('keyup',function(event){

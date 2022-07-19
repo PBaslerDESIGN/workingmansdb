@@ -9,17 +9,29 @@
 #form-addcustomer{
   justify-self: center;
   display: grid;
-  grid-template-columns: 100px 400px;
+  grid-template-columns: 100%;
   column-gap: 10px;
   row-gap: 10px;
 }
 
-#form-column label{
+.form-column{
+  display: grid;
+  grid-template-columns: 100px 400px;
+  grid-gap: 10px;
+}
+
+.form-column label{
   grid-column: 1/2;
 }
 
+.form-column div{
+  grid-column: 2/3;
+  grid-row: 2/3;
+}
+
+
 #form-addcustomer button{
-  grid-row: 5/6;
+  grid-row: 2/3;
   grid-column: 2/3;
   justify-self: end;
   color:  rgb(216, 233, 168);
