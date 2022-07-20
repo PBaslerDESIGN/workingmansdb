@@ -29,17 +29,6 @@
   grid-row: 2/3;
 }
 
-
-#form-addcustomer button{
-  grid-row: 2/3;
-  grid-column: 2/3;
-  justify-self: end;
-  color:  rgb(216, 233, 168);
-  font-weight: bold;
-  background-color:rgb(78, 159, 61);
-  width: 150px;
-}
-
 label{
   font-weight: bold;
   grid-column: 1/2;
@@ -61,5 +50,15 @@ border: 1px solid rgb(216, 233,168);
 border-radius: 3px;
 font-size: 20px;
 resize: none;
+}
+
+#form-addcustomer button{
+  grid-row: 3/4;
+  grid-column: 2/3;
+  justify-self: end;
+  color:  rgb(216, 233, 168);
+  font-weight: bold;
+  background-color:rgb(78, 159, 61);
+  width: 150px;
 }
 

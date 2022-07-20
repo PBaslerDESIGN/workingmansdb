@@ -29,51 +29,51 @@
         <form id="form-addcustomer" name="add_customer" action="">
         <section class="form-column">
             <label for="date">Date:</label>
-            <input type="text" id="date" name="date" max-length="10" placeholder="MM/DD/YYYY">
+            <input type="text" id="date" name="date" maxlength="10" placeholder="ex. MM/DD/YYYY">
             <div class="errorState"></div>
         </section>
 
         <section class="form-column">
             <label for="fname">First Name:</label>
-            <input type="text" id="fname" name="fname" max-length="25" placeholder="First Name" >
+            <input type="text" id="fname" name="fname" maxlength="25" placeholder="ex. John" >
             <div class="errorState"></div>
         </section>
 
         <section class="form-column">
             <label for="lname">Last Name:</label>
-            <input type="text" id="lname" name="lname" max-length="25" placeholder="Last Name">
+            <input type="text" id="lname" name="lname" maxlength="25" placeholder="ex. Doe">
             <div class="errorState"></div>
         </section>
 
         <section class="form-column">
             <label for="phone">Phone #</label>
-            <input type="text" id="phone" name="phone" max-length="10" placeholder="Phone Number">
+            <input type="text" id="phone" name="phone" maxlength="13" placeholder="ex. (555)555-5555">
             <div class="errorState"></div>
         </section>
 
         <section class="form-column">
-            <label for="vehicle">Vehicle Make</label>
-            <input type="text" id="vehicle" name="vehicle" max-length="25" placeholder="Vehicle Make">
+            <label for="vehicle">Vehicle:</label>
+            <input type="text" id="vehicle" name="vehicle" maxlength="25" placeholder="ex. Dodge Ram">
             <div class="errorState"></div>
         </section>
 
         <section class="form-column">
             <label for="price">Price:</label>
-            <input type="text" id="price" name="price" max-length="10"placeholder="Vehicle Price">
+            <input type="text" id="price" name="price" maxlength="10"placeholder="ex. $9999.99">
             <div class="errorState"></div>
         </section>
 
         <section class="form-column">
             <label for="trade">Trade In:</label>
-            <input type="text" id="trade" name="trade" max-length="25" placeholder="Trade In">
+            <input type="text" id="trade" name="trade" maxlength="25" placeholder="ex. Dodge Ram">
             <div class="errorState"></div>
         </section>
 
         <section class="form-column">
             <label for="notes">Notes:</label>
-            <textarea id="notes" name="notes" max-length="250" placeholder="Write comments in 250 or less..."></textarea>
+            <textarea id="notes" name="notes" maxlength="250" placeholder="Write comments in 250 or less..."></textarea>
             <button id="form-button" type="submit">Submit</button>
-            <div id="notesState"></div>
+            <div class="errorState"></div>
         </section>
 
         </form>

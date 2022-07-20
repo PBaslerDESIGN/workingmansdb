@@ -25,9 +25,9 @@ var messages = [];
         if(dateValue === "" || dateValue === null){
             errorState[0].innerText = "Date field is Required!";
         }else if(regex.test(dateValue) === false){
-            errorState[0].innerText ="Date field format is DD/MM/YYYY";
+            errorState[0].innerText ="Date field must only include [0-9 /]  ex. DD/MM/YYYY";
         }else{
-            errorState[0].innerText = "Date field looking good!";
+            errorState[0].innerText = "Date field looks good!";
         }
     });
     
@@ -35,110 +35,83 @@ var messages = [];
         let fnameValue = fname.value;
         let regex = /^[a-zA-Z]{1,25}$/;
         if(fnameValue === "" || fnameValue === null){
-            errorState[1].innerText = "First Name field is Required";
+            errorState[1].innerText = "First Name field is Required!";
         }else if(regex.test(fnameValue) === false){
-            errorState[1].innerText = "First Name field must be letter only ex. a-z A-Z";
+            errorState[1].innerText = "First Name must only include [a-z A-Z]!";
         }else{
-            errorState[1].innerText = "First Name field looking good!";
+            errorState[1].innerText = "First Name field looks good!";
         }
     });
     
     lname.addEventListener('keyup',function(event){
         let lnameValue = lname.value;
         let regex = /^[a-zA-Z]{1,25}$/;
-        if(lnameValue.length > 0){
-            console.log("lname Field is greater than zero!")
-            if(regex.test(lnameValue)){
-                console.log("First Name Field format is correct")
-                console.log(regex.test(lnameValue))
+        if(lnameValue === "" || lnameValue === null){
+            errorState[2].innerText = "Last Name field is Required!";
+        }else if(regex.test(lnameValue) === false){
+            errorState[2].innerText = "Last Name must only include [a-z A-Z]!";
         }else{
-                console.log("First Name must be no more than 25 chars [a-zA-Z]")
-            }
-        }else{
-            console.log("lname Field is Required!")
+            errorState[2].innerText = "Last Name field looks good!";
         }
-        
     });
-    
+     
     phone.addEventListener('keyup',function(event){
         let phoneValue = phone.value;
-        let regex = /^[0-9]{10}$/;
-        if(phoneValue.length > 0){
-            console.log("phone Field is greater than zero!")
-            if(regex.test(phoneValue)){
-                console.log("Phone Field format is correct")
-                console.log(regex.test(phoneValue))
+        let regex = /^[0-9\(\)\-]{13}$/;
+        if(phoneValue === "" || phoneValue === null){
+            errorState[3].innerText = "Phone field is Required!";
+        }else if(regex.test(phoneValue) === false){
+            errorState[3].innerText = "Phone field must only include [0-9 ( ) -]!";
         }else{
-                console.log("Phone Number must be 10 numeric chars [0-9]")
-            }
-        }else{
-            console.log("phone Field is Required!")
+            errorState[3].innerText = "Phone field looks good!";
         }
-        
     });
     
     vehicle.addEventListener('keyup',function(event){
         let vehicleValue = vehicle.value;
         let regex = /^[a-zA-Z0-9\s]{1,25}$/;
-        if(vehicleValue.length > 0){
-            console.log("vehicle Field is greater than zero!")
-            if(regex.test(vehicleValue)){
-                console.log("vehicle Field format is correct")
-                console.log(regex.test(vehicleValue))
+        if(vehicleValue === "" || vehicleValue === null){
+            errorState[4].innerText = "Vehicle field is Required!";
+        }else if(regex.test(vehicleValue) === false){
+            errorState[4].innerText = "Vehicle field must only include [a-z A-Z 0-9 spaces]!";
         }else{
-                console.log("vehicle must be 10 numeric chars [0-9]")
-            }
-        }else{
-            console.log("vehicle Field is Required!")
+            errorState[4].innerText = "Vehicle field looks good!";
         }
-        
     });
     
     price.addEventListener('keyup',function(event){
         let priceValue = price.value;
-        let regex = /^[0-9]{1,6}\.[0-9]{2}$/;
-        if(priceValue.length > 0){
-            console.log("price Field is greater than zero!")
-            if(regex.test(priceValue)){
-                console.log("price Field format is correct")
-                console.log(regex.test(priceValue))
+        let regex = /^\$[0-9]{1,6}\.[0-9]{2}$/;
+        if(priceValue === "" || priceValue === null){
+            errorState[5].innerText = "Price field is Required!";
+        }else if(regex.test(priceValue) === false){
+            errorState[5].innerText = "Price field format must only include [0-9 $ .]!";
         }else{
-                console.log("price must be 10 numeric chars [0-9]")
-            }
-        }else{
-            console.log("price Field is Required!")
+            errorState[5].innerText = "Price field looks good!";
         }
     });
     
     trade.addEventListener('keyup',function(event){
         let tradeValue = trade.value;
         let regex = /^[a-zA-Z0-9\s]{1,25}$/;
-        if(tradeValue.length > 0){
-            console.log("trade Field is greater than zero!")
-            if(regex.test(tradeValue)){
-                console.log("trade Field format is correct")
-                console.log(regex.test(tradeValue))
+        if(tradeValue === "" || tradeValue === null){
+            errorState[6].innerText = "Trade field is Required!";
+        }else if(regex.test(tradeValue) === false){
+            errorState[6].innerText = "Trade field must only include [a-z A-Z 0-9 spaces]!";
         }else{
-                console.log("trade must be 10 numeric chars [0-9]")
-            }
-        }else{
-            console.log("trade Field is Required!")
+            errorState[6].innerText = "Trade field looks good!";
         }
     });
     
     notes.addEventListener('keyup',function(event){
         let notesValue = notes.value;
         let regex = /^[a-zA-Z0-9\s\$\.\,]{1,250}$/;
-        if(notesValue.length > 0){
-            console.log("notes Field is greater than zero!")
-            if(regex.test(notesValue)){
-                console.log("notes Field format is correct")
-                console.log(regex.test(notesValue))
+        if(notesValue === "" || notesValue === null){
+            errorState[7].innerText = "Notes field is Required!";
+        }else if(regex.test(notesValue) === false){
+            errorState[7].innerText = "Notes field must only include [a-z A-Z 0-9 $ , . spaces]!";
         }else{
-                console.log("notes must be 10 numeric chars [0-9]")
-            }
-        }else{
-            console.log("notes Field is Required!")
+            errorState[7].innerText = "Notes field looks good!";
         }
     });
 
