@@ -6,7 +6,7 @@
   display: grid;
 }
 
-#form-addcustomer{
+#form-customer{
   justify-self: center;
   display: grid;
   grid-template-columns: 100%;
@@ -27,6 +27,14 @@
 .form-column div{
   grid-column: 2/3;
   grid-row: 2/3;
+}
+
+.error{
+  color: red;
+}
+
+.noError{
+  color:green; 
 }
 
 label{
@@ -52,7 +60,7 @@ font-size: 20px;
 resize: none;
 }
 
-#form-addcustomer button{
+#form-customer button{
   grid-row: 3/4;
   grid-column: 2/3;
   justify-self: end;
