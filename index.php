@@ -14,7 +14,7 @@
 <body>
     <div class="wrapper">
         <header>
-            <a class="header-h1-a" href="index.html">
+            <a class="header-h1-a" href="index.php">
                 <h1>WorkingManDB</h1>
             </a>
             <!--Search types
@@ -43,16 +43,38 @@
             </section>
             <nav>
                 <ul>
-                    <li><a href="index.html">Search</a></li>
-                    <li><a href="html/customer.html">Customer</a></li>
-                    <li><a href="html/faq.html">FAQ</a></li>
+                    <li><a href="index.php">Search</a></li>
+                    <li><a href="html/customer.php">Customer</a></li>
+                    <li><a href="html/faq.php">FAQ</a></li>
                 </ul>
             </nav>
         </header>
         <main id="main-container">
             <h2>Recent Customer</h2>
             <section>
+<?php 
+    $servername = "localhost";
+    $username = "root";
+    $password = "#\$Niltac2403";
+    $dbname = "workingmansdb";
 
+    try {
+    $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
+    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    $stmt = $conn->prepare("SELECT * FROM customer LIMIT 10");
+    $stmt->execute();
+
+    // set the resulting array to associative
+    $result = $stmt->setFetchMode(PDO::FETCH_ASSOC);
+    foreach($result) {
+        
+    }
+    } catch(PDOException $e) {
+    echo "Error: " . $e->getMessage();
+    }
+    $conn = null;
+echo "</table>";
+?>
             </section>
         </main>
         <footer></footer>
