@@ -1,12 +1,15 @@
 <?php
-
+$servername = "localhost";
+$username = "root";
+$password = "#\$Niltac2403";
+$dbname = "workingmansdb";
     try {
         $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
         // set the PDO error mode to exception
         $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         $sql = "SELECT * FROM customer LIMIT 10";
         // use exec() because no results are returned
-        $reuslt = $conn->query($sql)->fetchAll();
+        $result = $conn->query($sql)->fetchAll();
         if($result > 0){
             $myTable = "<table><tr>
             <td>ID</td>
@@ -17,21 +20,23 @@
             <td>Vehicle</td>
             <td>Price</td>
             <td>Trade</td>
-        </tr></table></table>";
+        </tr>";
             foreach($result as $row){
-                echo print_r($result);
                 $myTable .= "<tr>";
                 $myTable .= "<td>".$row['id']."</td>";
-                $myTable .= "<td>".$row['cutomer_date']."</td>";
+                $myTable .= "<td>".$row['customer_date']."</td>";
                 $myTable .= "<td>".$row['first_name']."</td>";
                 $myTable .= "<td>".$row['last_name']."</td>";
                 $myTable .= "<td>".$row['phone_number']."</td>";
                 $myTable .= "<td>".$row['vehicle']."</td>";
                 $myTable .= "<td>".$row['price']."</td>";
                 $myTable .= "<td>".$row['trade']."</td>";
-                $myTable .= "</tr>";
+                $myTable .= "</tr>\n";
             }
+            $myTable .= "</table>";
         }
+
+
         echo "New record created successfully";
       } catch(PDOException $e) {
         echo $sql . "<br>" . $e->getMessage();
