@@ -1,9 +1,52 @@
 <?php 
+
+function formatDate($date){
+    $thirdChar = substr($date, 2, 1);
+    if($thirdChar === '/'){
+      $sqlDate = subStr($date,6);
+      $sqlDate = $sqlDate ."-". subStr($date, 0, 2);
+      $sqlDate = $sqlDate ."-". subStr($date, 3, 2);
+      return $sqlDate;
+    }else{
+      $sqlDate = subStr($date, 5, 2);
+      $sqlDate = $sqlDate ."/". subStr($date, 8, 2);
+      $sqlDate = $sqlDate ."/". subStr($date, 0, 4);
+      return $sqlDate;
+    }
+  }
+
+function formatPhone($phone){
+    $firstChar = substr($phone, 0, 1);
+    if($firstChar === '('){
+      $sqlPhone = subStr($phone, 1, 3);
+      $sqlPhone .= subStr($phone, 5, 3);
+      $sqlPhone .= subStr($phone, 9, 4);
+      return $sqlPhone;
+    }else{
+      $sqlPhone = "(".subStr($phone, 0, 3);
+      $sqlPhone .= ")".subStr($phone, 3, 3);
+      $sqlPhone .= "-". subStr($phone, 6, 4);
+      return $sqlPhone;
+    }
+  }
+
+function formatPrice($price){
+    $firstChar = substr($price, 0, 1);
+    if($firstChar === '$'){
+      $sqlPrice = subStr($price, 1);
+      return $sqlPrice;
+    }else{
+      $sqlPrice = "$".subStr($price, 0);
+
+      return $sqlPrice;
+    }
+  }
+
 if(isset($_POST['date'])){
     $date = $_POST['date'];
-    $date = trim($date,'\(\)\-');
-    echo $date;
+    $date = date(formatDate($date));
 }
+
 
 if(isset($_POST['fname'])){
     $fname = $_POST['fname'];
@@ -15,6 +58,7 @@ if(isset($_POST['lname'])){
 
 if(isset($_POST['phone'])){
     $phone = $_POST['phone'];
+    $phone = (integer)formatPhone($phone);
 }
 
 if(isset($_POST['vehicle'])){
@@ -23,6 +67,7 @@ if(isset($_POST['vehicle'])){
 
 if(isset($_POST['price'])){
     $price = $_POST['price'];
+    $price = (double)formatPrice($price);
 }
 
 if(isset($_POST['trade'])){
@@ -33,26 +78,28 @@ if(isset($_POST['notes'])){
     $notes = $_POST['notes'];
 }
 
-$mysqli = new mysqli("localhost","root","#\$Niltac2403","workingmansdb");
+$servername = "localhost";
+$username = "root";
+$password = "#\$Niltac2403";
+$dbname = "workingmansdb";
 
-if ($mysqli -> connect_errno) {
-  echo "Failed to connect to MySQL: " . $mysqli -> connect_error;
-  exit();
+try {
+  $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
+  // set the PDO error mode to exception
+  $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+  $sql = "INSERT INTO `customer` (`id`, `customer_date`, `first_name`, `last_name`, `phone_number`, `vehicle`, `price`, `trade`, `notes`) 
+  VALUES (NULL, '$date', '$fname', '$lname', '$phone', '$vehicle', '$price', '$trade', '$notes')";
+  // use exec() because no results are returned
+  $conn->exec($sql);
+  echo "New record created successfully";
+} catch(PDOException $e) {
+  echo $sql . "<br>" . $e->getMessage();
 }
 
-if(isset($_POST['submit'])){
-    // Perform queries and print out affected rows
-    $sql = "INSERT INTO `customer` (`id`, `customer_date`, `first_name`, `last_name`, `phone_number`, `vehicle`, `price`, `trade`, `notes`) 
-            VALUES (NULL, '$date', '$fname', '$lname', '$phone', '$vehicle', '$price', '$trade', '$notes')";
-    $mysqli -> query($sql);
-    echo "Affected rows: " . $mysqli -> affected_rows;
-}
-
-
-$mysqli -> close();
+$conn = null;
     
-?>
 
+echo <<<_END
 <!DOCTYPE html>
 <html lang="en">
 
@@ -144,3 +191,5 @@ $mysqli -> close();
 </body>
 
 </html>
+_END;
+?>

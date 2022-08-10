@@ -1,3 +1,49 @@
+<?php
+$servername = "localhost";
+$username = "root";
+$password = "#\$Niltac2403";
+$dbname = "workingmansdb";
+    try {
+        $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
+        // set the PDO error mode to exception
+        $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        $sql = "SELECT * FROM customer LIMIT 10";
+        // use exec() because no results are returned
+        $result = $conn->query($sql)->fetchAll();
+        if($result > 0){
+            $myTable = "<table><tr>
+            <td>ID</td>
+            <td>Customer Date</td>
+            <td>First Name</td>
+            <td>Last Name</td>
+            <td>Phone Number</td>
+            <td>Vehicle</td>
+            <td>Price</td>
+            <td>Trade</td>
+        </tr>";
+            foreach($result as $row){
+                $myTable .= "<tr>";
+                $myTable .= "<td>".$row['id']."</td>";
+                $myTable .= "<td>".$row['customer_date']."</td>";
+                $myTable .= "<td>".$row['first_name']."</td>";
+                $myTable .= "<td>".$row['last_name']."</td>";
+                $myTable .= "<td>".$row['phone_number']."</td>";
+                $myTable .= "<td>".$row['vehicle']."</td>";
+                $myTable .= "<td>".$row['price']."</td>";
+                $myTable .= "<td>".$row['trade']."</td>";
+                $myTable .= "</tr>\n";
+            }
+            $myTable .= "</table>";
+        }
+
+
+        echo "New record created successfully";
+      } catch(PDOException $e) {
+        echo $sql . "<br>" . $e->getMessage();
+      }
+      
+      $conn = null;
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -52,29 +98,9 @@
         <main id="main-container">
             <h2>Recent Customer</h2>
             <section>
-<?php 
-    $servername = "localhost";
-    $username = "root";
-    $password = "#\$Niltac2403";
-    $dbname = "workingmansdb";
-
-    try {
-    $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
-    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    $stmt = $conn->prepare("SELECT * FROM customer LIMIT 10");
-    $stmt->execute();
-
-    // set the resulting array to associative
-    $result = $stmt->setFetchMode(PDO::FETCH_ASSOC);
-    foreach($result) {
-        
-    }
-    } catch(PDOException $e) {
-    echo "Error: " . $e->getMessage();
-    }
-    $conn = null;
-echo "</table>";
-?>
+            <?php
+                echo $myTable;
+            ?>
             </section>
         </main>
         <footer></footer>
